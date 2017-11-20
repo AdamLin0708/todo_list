@@ -1,25 +1,25 @@
 <%= render :partial => "title" %>
-<div class="container-fluid row">  
-  <div class="container-fluid col-md-offset-3">
-    <button class="btn btn-default">
-      <%= link_to raw("<i class=\"glyphicon glyphicon-menu-left\">返回清單</i>"), todo_lists_path %>      
-    </button>  
-  </div>
-  <div class="container-fluid col-md-6 col-md-offset-3">
-    <table class="table table-bordered list-table">
-      <tr>
-        <th>標題</th>
-        <td><%= @todo_list.title %></td>
-      </tr>
-      <tr>
-        <th>Due date</th>
-        <td><%= @todo_list.due_date %></td>
-      </tr>
-      <tr>
-        <th>Todo內容</th>
-        <td><%= simple_format(@todo_list.description) %></td>
-      </tr>
-    </table>
+<div class="container-fluid row">
+ <div class="container-fluid card">
+    <div class="container-fluid col-md-offset-3 col-md-6 card-body">    
+        <button class="btn btn-default">
+          <%= link_to raw("<i class=\"glyphicon glyphicon-menu-left\">返回清單</i>"), todo_lists_path %>      
+        </button>                      
+        <table class="table table-bordered list-table" >        
+          <tr>
+            <th style="vertical-align: middle">標題</th>
+            <td><%= @todo_list.title %></td>
+          </tr>    
+          <tr>
+            <th style="vertical-align: middle">Due Date</th>          
+            <td><%= @todo_list.due_date %></td>
+          </tr>
+          <tr>
+            <th style="vertical-align: middle">敘述</th>
+            <td><%= simple_format(@todo_list.description)%></td>
+          </tr>            
+        </table>                      
+    </div>    
   </div>  
 </div>
 

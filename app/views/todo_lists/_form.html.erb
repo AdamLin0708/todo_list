@@ -26,11 +26,7 @@
             <tr>
               <th style="vertical-align: middle"><%= f.label :description, "敘述" %></th>
               <td><%= f.text_area :description, style: 'resize:none', class: 'form-control'%></td>
-            </tr>
-            <tr>
-              <th style="vertical-align: middle"><%= f.label :file_location, "相片" %></th>
-              <td><%= f.file_field :file_location %></td>
-            </tr>
+            </tr>            
           </table>
           <%= f.submit "新增" , class: 'btn btn-success'%>
         <% end %>      
