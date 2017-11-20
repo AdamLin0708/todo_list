@@ -1,0 +1,45 @@
+<div class="container-fluid row">
+  <!-- 標題 -->
+  <%= render :partial => "title" %>
+
+  <!-- todo list table -->
+  <div class="container-fluid col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 card">    
+    <div class="card-body">
+     <h2 class="text-center">Lists</h2> 
+     <hr/>
+     <button class='btn btn-default'><%= link_to raw("<i class=\"glyphicon glyphicon-plus\">新增Todo</i>"), new_todo_list_path %></button>
+     <table class="table table-bordered text-center list-table">
+        <thead>
+          <tr>          
+            <th class="text-center">標題</th>          
+            <th class="text-center">Due Day</th>
+            <th class="text-center">查看</th>
+            <th class="text-center">編輯</th>
+            <th class="text-center">刪除</th>
+          </tr>
+        </thead>
+        <tbody>        
+          <% @todo_lists.each do |todo| %>
+            <tr>            
+              <td><%= todo.title %></td>            
+              <td><%= todo.due_date %></td>
+              <td>
+                <%= link_to raw("<i class=\"glyphicon glyphicon-search\"></i>"), todo_list_path(todo) %>            
+              </td>
+              <td><%= link_to raw("<i class=\"glyphicon glyphicon-pencil\"></i>"), edit_todo_list_path(todo) %></td>
+              <td><%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), todo_list_path(todo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+            </tr>          
+         <% end %>
+        </tbody>
+      </table>   
+    </div>
+    
+
+  </div>
+  
+
+
+
+
+
+</div>

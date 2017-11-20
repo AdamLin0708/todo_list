@@ -1,0 +1,40 @@
+<div class="container-fluid row">  
+  <% if @todo_list.errors.present? %>
+    <div class="container-fluid">
+      <ul>
+        <% @todo_list.errors.each do |error, message| %>
+          <li> <%= "#{error.capitalize}  #{message}" %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container-fluid card">
+    <div class="container-fluid col-md-offset-3 col-md-6 card-body">    
+        <button class="btn btn-default">
+          <%= link_to raw("<i class=\"glyphicon glyphicon-menu-left\">返回清單</i>"), todo_lists_path %>      
+        </button>              
+        <%= form_for @todo_list do |f| %> 
+          <table class="table table-bordered list-table" >        
+            <tr>
+              <th style="vertical-align: middle"><%= f.label :title, "標題" %></th>
+              <td><%= f.text_field :title , class: 'form-control' %></td>
+            </tr>    
+            <tr>
+              <th style="vertical-align: middle"><%= f.label :date, "Due Date" %></th>          
+              <td><%= f.text_field :due_date , class: 'form-control' %></td>
+            </tr>
+            <tr>
+              <th style="vertical-align: middle"><%= f.label :description, "敘述" %></th>
+              <td><%= f.text_area :description, style: 'resize:none', class: 'form-control'%></td>
+            </tr>
+            <tr>
+              <th style="vertical-align: middle"><%= f.label :file_location, "相片" %></th>
+              <td><%= f.file_field :file_location %></td>
+            </tr>
+          </table>
+          <%= f.submit "新增" , class: 'btn btn-success'%>
+        <% end %>      
+    </div>    
+  </div>
+</div>
+
